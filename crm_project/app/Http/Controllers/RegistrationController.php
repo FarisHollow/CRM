@@ -1,50 +1,42 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 use App\Models\Admin;
 use App\Models\Employee;
 use Illuminate\Support\Facades\Hash;
-use Laravel\Fortify\Features\RegistrationFeature;
-use Laravel\Fortify\CreateNewUser;
-use Laravel\Fortify\Contracts\CreatesNewUsers;
 
 class RegistrationController extends Controller
 {
-
-    // Add an index method to display the registration form
     public function index()
     {
-        return view('auth.register'); // Assuming your registration form is in resources/views/auth/register.blade.php
+        return view('auth.register');
     }
-    
+
     public function create(Request $input)
     {
-        $role = $input['role'];
-        
-        if ($role === 'admin') {
-            return Admin::create([
-                'name' => $input['name'],
-                'email' => $input['email'],
-                'password' => Hash::make($input['password']),
-                'designation' => $input['designation'],
-                'role' => $input['role']
-            ]);
-        } elseif ($role === 'employee') {
-            return Employee::create([
-                'name' => $input['name'],
-                'email' => $input['email'],
-                'password' => Hash::make($input['password']),
-                'designation' => $input['designation'],
-                'role' => $input['role']
-            ]);
-        }
-        return redirect()->route('login'); 
+        $role = $input->input('role');
 
-        
+        // Define validation rules based on the user's role
+        $rules = [
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users,email',                          
+            'password' => 'required|string|min:8', 
+            'designation' => 'required|string',
+        ];
+
+        $modelClass = ($role === 'admin') ? Admin::class : Employee::class;
+
+        $validatedData = $input->validate($rules);
+
+        $modelClass::create([
+            'name' => $validatedData['name'],
+            'email' => $validatedData['email'],
+            'password' => Hash::make($validatedData['password']),
+            'designation' => $validatedData['designation'],
+            'role' => $role,
+        ]);
+
+        return redirect()->route('login');
     }
-
-
-    
 }

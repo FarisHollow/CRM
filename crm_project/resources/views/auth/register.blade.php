@@ -47,11 +47,7 @@
         
 
             <div class="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
-                <ul>
-                    @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
+               
                 <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
                    
 
@@ -121,7 +117,14 @@
                             Already have an account? <a href="{{ route('login') }}"
                                 class="font-medium text-primary-600 hover:underline dark:text-primary-500">Login here</a>
                         </p>
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                            <li style="color: red;">{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                        
                     </form>
+                   
                 </div>
             </div>
         </div>
