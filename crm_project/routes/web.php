@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\RegistrationController;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -21,10 +24,19 @@ Route::get('/login', function () {
     return view('auth.login');
 })->name('login');
 
-Route::get('/register', function () {
-    return view('auth.register');
-})->name('register');
+
+// Show registration form
+Route::get('/register', [RegistrationController::class, 'index'])->name('register');
+
+// Handle registration
+Route::post('/register', [RegistrationController::class, 'create']);
+
+
 
 Route::get('/admin', function () {
     return view('admin.adminPanel');
 })->name('admin');
+
+Route::get('/home', function () {
+    return view('admin.adminPanel');
+})->name('home');

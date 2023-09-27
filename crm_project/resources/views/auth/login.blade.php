@@ -53,7 +53,6 @@
       </form>
       <p class="mt-4 text-gray-600 text-center">Don't have an account? <a href="{{Route('register')}}" class="text-blue-500 hover:underline">Signup here</a></p>
     </div>
-    <h2><a href="{{route('admin')}}">Admin</a></h2>
   </div>
 </body>
 
