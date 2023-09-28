@@ -17,7 +17,6 @@ class RegistrationController extends Controller
     {
         $role = $input->input('role');
 
-        // Define validation rules based on the user's role
         $rules = [
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users,email',                          
@@ -25,7 +24,7 @@ class RegistrationController extends Controller
             'designation' => 'required|string',
         ];
 
-        $modelClass = ($role === 'admin') ? Admin::class : Employee::class;
+        $modelClass = ($role === 'admin') ? Admin::class : Employee::class; //check role
 
         $validatedData = $input->validate($rules);
 
