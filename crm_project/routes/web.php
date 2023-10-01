@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegistrationController;
 
@@ -33,10 +34,14 @@ Route::post('/register', [RegistrationController::class, 'create']);
 
 
 
-Route::get('/admin', function () {
-    return view('admin.adminPanel');
-})->name('admin');
+
+
+
 
 Route::get('/home', function () {
-    return view('admin.adminPanel');
+    return view('Admin.adminPanel');
 })->name('home');
+
+Route::get('/employee', function () {
+    return view('Employee.employeeP');
+})->name('employee');

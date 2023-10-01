@@ -122,7 +122,7 @@
                             <li style="color: red;">{{ $error }}</li>
                             @endforeach
                         </ul>
-                        
+                                
                     </form>
                    
                 </div>

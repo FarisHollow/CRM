@@ -24,7 +24,7 @@ class RegistrationController extends Controller
             'designation' => 'required|string',
         ];
 
-        $modelClass = ($role === 'admin') ? Admin::class : Employee::class; //check role
+        $modelClass = ($role === 'admin') ? Admin::class : Employee::class; 
 
         $validatedData = $input->validate($rules);
 
