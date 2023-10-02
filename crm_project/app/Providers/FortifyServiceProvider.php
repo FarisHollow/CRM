@@ -23,13 +23,17 @@ class FortifyServiceProvider extends ServiceProvider
         //
     }
 
+
     /**
      * Bootstrap any application services.
      */
     public function boot(): void
     {
 
+
+        Fortify::registerView('auth.register');
         Fortify::loginView('auth.login');
+
         Fortify::createUsersUsing(CreateNewUser::class);
         Fortify::updateUserProfileInformationUsing(UpdateUserProfileInformation::class);
         Fortify::updateUserPasswordsUsing(UpdateUserPassword::class);

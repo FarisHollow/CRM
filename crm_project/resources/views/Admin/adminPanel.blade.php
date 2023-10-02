@@ -18,12 +18,8 @@
       <!-- Sidebar scroll-->
       <div>
         <div class="brand-logo d-flex align-items-center justify-content-between">
-          <a href="./index.html" class="text-nowrap logo-img">
-            <img src="../assets/images/logos/dark-logo.svg" width="180" alt="" />
-          </a>
-          <div class="close-btn d-xl-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse">
-            <i class="ti ti-x fs-8"></i>
-          </div>
+          <h1>{{ auth()->user()->name }}</h1>
+
         </div>
         <!-- Sidebar navigation-->
         <nav class="sidebar-nav scroll-sidebar" data-simplebar="">
@@ -89,14 +85,15 @@
               <span class="hide-menu">AUTH</span>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link"  onclick="event.preventDefault(); document.getElementById('logout-form').submit();" aria-expanded="false">
-                <span>
-                  <i class="ti ti-login"></i>
-                </span>
-                <span class="hide-menu">Logout</span>
-              </a>
+              
               <form id="logout-form" action="{{ route('logout') }}" method="POST" class="hidden">
                 @csrf
+                <a class="sidebar-link"  onclick="event.preventDefault(); document.getElementById('logout-form').submit();" aria-expanded="false">
+                  <span>
+                    <i class="ti ti-login"></i>
+                  </span>
+                  <span class="hide-menu">Logout</span>
+                </a>
             </form>
             </li>
             <li class="sidebar-item">

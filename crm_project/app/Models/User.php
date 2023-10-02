@@ -8,7 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
-class Employee extends Authenticatable
+class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
@@ -17,9 +17,6 @@ class Employee extends Authenticatable
      *
      * @var array<int, string>
      */
-
-     protected $table = 'employees';
-
     protected $fillable = [
         'name',
         'email',
@@ -30,8 +27,8 @@ class Employee extends Authenticatable
 
     /**
      * The attributes that should be hidden for serialization.
-     *
-     * @var array<int, string>
+     *  
+     * @    var array<int, string>
      */
     protected $hidden = [
         'password',
