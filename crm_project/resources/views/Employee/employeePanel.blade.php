@@ -2,26 +2,65 @@
 
 @section('content')
 
+<style>
+    .container {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        min-height: 100vh;
+        padding-left: 150px;
+    }
 
-<body>
+    /* Add some custom styles for the card section */
+    .card-section {
+        background-color: #fff;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        padding: 20px;
+        text-align: center;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        margin: 5px; /* Add margin to create space */
+    }
 
-  <section id="container" >
-      <!--main content start-->
-      <section id="main-content">
-          <section class="wrapper">
+    /* Add margin to the box components */
+    .box0 {
+        margin: 10px;
+    }
+</style>
 
-
-            <h1>hello</h1>
-
-       
-          </section>
-      </section>
-
-     
-  </section>
-
-
-  
-
-  </body>
+<div class="container">
+    <section id="container">
+        <section id="main-content">
+            <section class="wrapper">
+                <div class="col-lg-9 main-chart">
+                    <div class="row mtbox">
+                        <div class="col-md-2 col-sm-2 box0">
+                            <div class="box1">
+                                <span class="li_stack"></span>
+                                <h3>23</h3>
+                            </div>
+                            <p>You have 23 unread messages in your inbox.</p>
+                        </div>
+                        <div class="col-md-2 col-sm-2 box0">
+                            <div class="box1">
+                                <span class="li_news"></span>
+                                <h3>+10</h3>
+                            </div>
+                            <p>More than 10 news were added in your reader.</p>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="card-section">
+                              <h3>Add Activities</h3>
+                              <p>Click the button below to add activities.</p>
+                              <a class="btn btn-primary" href="{{ route('lead') }}">Add Activities</a>
+                              <img src="add.png" alt="Activity Image" style="max-width: 100%; margin-top: 20px;">
+                          </div>
+                      </div>
+                      
+                    </div>
+                </div>
+            </section>
+        </section>
+    </section>
+</div>
 @endsection

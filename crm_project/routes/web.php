@@ -33,26 +33,14 @@ Route::get('/e-dashboard', function () {
     return view('Employee.employeePanel');
 })->name('e-dashboard');
 
-Route::get('/general', function () {
-    return view('general');
-})->name('general');
 
-Route::get('/buttons', function () {
-    return view('buttons');
-})->name('buttons');
-
-Route::get('/panels', function () {
-    return view('panels');
-})->name('panels');
 
 
 Route::get('/calendar', function () {
     return view('Admin.calendar');
 })->name('calendar');
 
-Route::get('/gallery', function () {
-    return view('gallery');
-})->name('gallery');
+
 
 Route::get('/todo', function () {
     return view('todo_list');
@@ -63,6 +51,11 @@ Route::get('/todo', function () {
 Route::get('/lock', function () {
     return view('lock_screen');
 })->name('lock_screen');
+
+
+Route::get('/lead', function () {
+    return view('Employee.addLead');
+})->name('lead');
 
 
 

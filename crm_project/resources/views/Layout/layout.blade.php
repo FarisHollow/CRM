@@ -209,17 +209,7 @@ MAIN SIDEBAR MENU
             </a>
         </li>
 
-        <li class="sub-menu">
-            <a href="javascript:;" >
-                <i class="fa fa-desktop"></i>
-                <span>UI Elements</span>
-            </a>
-            <ul class="sub">
-                <li><a  href={{route("general")}}>General</a></li>
-                <li><a  href={{route("buttons")}}>Buttons</a></li>
-                <li><a  href={{route("panels")}}>Panels</a></li>
-            </ul>
-        </li>
+     
 
         <li class="sub-menu">
             <a href="javascript:;" >
@@ -228,7 +218,6 @@ MAIN SIDEBAR MENU
             </a>
             <ul class="sub">
                 <li><a  href={{route("calendar")}}>Calendar</a></li>
-                <li><a  href={{route("gallery")}}>Gallery</a></li>
                 <li><a  href={{route("todo_list")}}>Todo List</a></li>
             </ul>
         </li>
