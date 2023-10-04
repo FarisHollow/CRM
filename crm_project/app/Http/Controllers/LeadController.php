@@ -8,6 +8,35 @@ use App\Models\Lead;
 
 class LeadController extends Controller
 {
+
+
+    public function index()
+    {
+        $leads = Lead::all();
+    
+           if(auth()->user()->role === 'admin'){
+
+               return view('Admin.admin_lead', ['leads' => $leads]);
+
+           }elseif(auth()->user()->role === 'employee'){
+
+            return view('Employee.employee_lead', ['leads' => $leads]);
+           }
+        
+        }
+
+           
+
+
+    public function myLeads()
+{
+    $userLeads = auth()->user()->leads;
+
+    return view('Employee.my_leads', ['userLeads' => $userLeads]);
+}
+
+
+
     // Store a newly created lead in the database
     public function store(Request $request)
     {

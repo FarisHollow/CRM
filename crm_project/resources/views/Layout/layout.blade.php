@@ -24,16 +24,26 @@
     <link href="assets/css/style-responsive.css" rel="stylesheet">
 
     <script src="assets/js/chart-master/Chart.js"></script>
+
+    
   
   </head>
 
 <header class="header black-bg">
     <div class="sidebar-toggle-box">
         <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
+ 
     </div>
+   
+    
   <!--logo start-->
-  <a href="index.html" class="logo"><b>IT WAY UK</b></a>
-  <!--logo end-->
+  <div id="logo-back-container">
+
+    
+    
+   
+    <a href="index.html" class="logo"><b>IT WAY UK</b></a>
+</div>  <!--logo end-->
   <div class="nav notify-row" id="top_menu">
       <!--  notification start -->
       <ul class="nav top-menu">

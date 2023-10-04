@@ -12,6 +12,13 @@ class CreateNewUser implements CreatesNewUsers
 {
     use PasswordValidationRules;
 
+    public function index()
+{
+    $employees = User::where('role', 'employee')->get(); // Assuming 'employee' is the role for employees.
+    return view('Admin.employee_list', ['employees' => $employees]);
+}
+
+
     /**
      * Validate and create a newly registered user.
      *
@@ -19,6 +26,8 @@ class CreateNewUser implements CreatesNewUsers
      */
     public function create(array $input): User
     {
+
+        
         Validator::make($input, [
             'name' => ['required', 'string', 'max:255'],
             'email' => [

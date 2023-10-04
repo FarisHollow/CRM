@@ -39,20 +39,22 @@
                                 <span class="li_stack"></span>
                                 <h3>23</h3>
                             </div>
-                            <p>You have 23 unread messages in your inbox.</p>
+                            <p>You have 23 texts by Admin</p>
                         </div>
                         <div class="col-md-2 col-sm-2 box0">
                             <div class="box1">
                                 <span class="li_news"></span>
-                                <h3>+10</h3>
+                                <h3>{{ auth()->user()->leads->count() }}</h3>
                             </div>
-                            <p>More than 10 news were added in your reader.</p>
+                            <p>{{ auth()->user()->leads->count() }} leads were added by you.</p>
                         </div>
+                        
+                        
                         <div class="col-md-6">
                           <div class="card-section">
-                              <h3>Add Activities</h3>
-                              <p>Click the button below to add activities.</p>
-                              <a class="btn btn-primary" href="{{ route('lead') }}">Add Activities</a>
+                            <h3><a class="btn btn-link btn-lg" href="{{ route('leads.index') }}">Leads</a></h3>
+                            <p>Click the button below to add current lead.</p>
+                              <a class="btn btn-primary" href="{{ route('lead') }}">Add Lead</a>
                               <img src="add.png" alt="Activity Image" style="max-width: 100%; margin-top: 20px;">
                           </div>
                       </div>

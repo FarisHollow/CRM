@@ -4,6 +4,7 @@ use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\LeadController;
+use App\Actions\Fortify\CreateNewUser;
 
 
 
@@ -59,6 +60,10 @@ Route::get('/lead', function () {
 })->name('lead');
 
 Route::post('/leads', [LeadController::class, 'store'])->name('leads.store');
+Route::get('/leads', [LeadController::class, 'index'])->name('leads.index');
+Route::get('/my-leads', [LeadController::class, 'myLeads'])->name('my-leads');
+Route::get('/employees', [CreateNewUser::class, 'index'])->name('employees.index');
+
 
 
 
