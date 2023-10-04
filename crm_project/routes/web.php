@@ -3,6 +3,7 @@
 use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegistrationController;
+use App\Http\Controllers\LeadController;
 
 
 
@@ -57,6 +58,7 @@ Route::get('/lead', function () {
     return view('Employee.addLead');
 })->name('lead');
 
+Route::post('/leads', [LeadController::class, 'store'])->name('leads.store');
 
 
 

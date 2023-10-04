@@ -25,6 +25,12 @@ class User extends Authenticatable
         'role'
     ];
 
+    public function leads()
+{
+    return $this->hasMany(Lead::class);
+}
+
+
     /**
      * The attributes that should be hidden for serialization.
      *  

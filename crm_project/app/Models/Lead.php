@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Lead extends Model
 {
     use HasFactory;
+    
+    protected $table = 'leads'; 
 
     protected $primaryKey = 'lead_id'; // Define the custom primary key name if needed
 
