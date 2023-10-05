@@ -8,7 +8,7 @@
     <meta name="author" content="Dashboard">
     <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
 
-    <title>DASHGUM - FREE Bootstrap Admin Template</title>
+    <title>IT WAY UK</title>
 
     <!-- Bootstrap core CSS -->
     <link href="assets/css/bootstrap.css" rel="stylesheet">
@@ -17,6 +17,8 @@
     <link rel="stylesheet" type="text/css" href="assets/css/zabuto_calendar.css">
     <link rel="stylesheet" type="text/css" href="assets/js/gritter/css/jquery.gritter.css" />
     <link rel="stylesheet" type="text/css" href="assets/lineicons/style.css">    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
     
     <!-- Custom styles for this template -->
     <link href="assets/css/style.css" rel="stylesheet">
@@ -24,6 +26,7 @@
     <link href="assets/css/style-responsive.css" rel="stylesheet">
 
     <script src="assets/js/chart-master/Chart.js"></script>
+
 
     
   
@@ -243,13 +246,25 @@ MAIN SIDEBAR MENU
                   </form>
                 
         </li>
-        <li class="sub-menu">
+        <li class="sub-menu {{ isMenuActive(['addnotice.view', 'notice-board.index']) ? 'active' : '' }}">
             <a href="javascript:;" >
                 <i class="fa fa-tasks"></i>
-                <span>Forms</span>
+                <span> Notice</span>
             </a>
             <ul class="sub">
-                <li><a  href="form_component">Form Components</a></li>
+                @if(auth()->user()->role === 'admin')
+                <li><a href="{{ route('addnotice.view') }}">Add Notice</a></li>
+                <li><a href="{{ route('notice-board.index') }}">Notice Board</a></li>
+            @elseif(auth()->user()->role === 'employee')
+                <li><a href="{{ route('notice-board.index') }}">Notice Board</a></li>
+            @else
+                <h1>No role found</h1>
+            @endif
+            
+                
+          
+
+
             </ul>
         </li>
       
@@ -273,3 +288,13 @@ MAIN SIDEBAR MENU
 @endif
 
  
+@php
+function isMenuActive($routeName) {
+    return request()->routeIs($routeName);
+}
+@endphp
+
+
+
+
+

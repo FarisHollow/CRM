@@ -34,6 +34,17 @@
 								<p>{{ \App\Models\Lead::count() }} updates were added in your leads.</p>
 							</a>
 						</div>
+
+						<div class="col-md-2 col-sm-2 box0">
+							<a href="{{ route('notice-board.index') }}">
+
+								<div class="box1">
+									<span class="fas fa-clipboard-list"></span>
+									<h3>{{ \App\Models\Notice::count() }}</h3>
+								</div>
+								<p>Total {{ \App\Models\Notice::count() }} notices </p>
+							</a>
+						</div>
 						
                   		<div class="col-md-2 col-sm-2 box0">
                   			<div class="box1">

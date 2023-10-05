@@ -5,8 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\LeadController;
 use App\Actions\Fortify\CreateNewUser;
-
-
+use App\Http\Controllers\NoticeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,6 +22,9 @@ Route::get('/', function () {
     return view('index');
 });
 
+Route::middleware(['auth'])->group(function () {
+
+    
 Route::get('/home', function () {
     return view('Layout.home');
 })->name('home');
@@ -59,11 +61,18 @@ Route::get('/lead', function () {
     return view('Employee.addLead');
 })->name('lead');
 
+
+
 Route::post('/leads', [LeadController::class, 'store'])->name('leads.store');
 Route::get('/leads', [LeadController::class, 'index'])->name('leads.index');
 Route::get('/my-leads', [LeadController::class, 'myLeads'])->name('my-leads');
 Route::get('/employees', [CreateNewUser::class, 'index'])->name('employees.index');
+Route::post('/notice', [NoticeController::class, 'store'])->name('notice.store');
+Route::get('/addnotice', [NoticeController::class, 'view'])->name('addnotice.view');
+Route::get('/notice-board', [NoticeController::class, 'index'])->name('notice-board.index');
 
 
 
+
+});
 

@@ -1,6 +1,5 @@
 @if(auth()->check())
 
-
 @if(auth()->user()->role === 'admin')
   @include('Admin.adminPanel')
 @elseif(auth()->user()->role === 'employee')

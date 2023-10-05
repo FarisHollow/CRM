@@ -35,11 +35,12 @@
                 <div class="col-lg-9 main-chart">
                     <div class="row mtbox">
                         <div class="col-md-2 col-sm-2 box0">
+                            <a href="{{ route('notice-board.index') }}">
                             <div class="box1">
-                                <span class="li_stack"></span>
-                                <h3>23</h3>
+                                <span class="fas fa-clipboard-list"></span>
+                                <h3>{{ \App\Models\Notice::count() }}</h3>
                             </div>
-                            <p>You have 23 texts by Admin</p>
+                            <p>You have {{ \App\Models\Notice::count() }} notices by Admin</p>
                         </div>
                         <div class="col-md-2 col-sm-2 box0">
                             <div class="box1">
@@ -48,6 +49,8 @@
                             </div>
                             <p>{{ auth()->user()->leads->count() }} leads were added by you.</p>
                         </div>
+
+                       
                         
                         
                         <div class="col-md-6">

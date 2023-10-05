@@ -30,6 +30,11 @@ class User extends Authenticatable
     return $this->hasMany(Lead::class);
 }
 
+public function notices()
+{
+    return $this->hasMany(Notice::class);
+}
+
 
     /**
      * The attributes that should be hidden for serialization.
