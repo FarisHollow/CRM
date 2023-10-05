@@ -25,6 +25,11 @@
         font-size: 12px;
         color: blue;
     }
+
+    .notice .posted-by {
+        font-size: 10px;
+        margin-top: 10px;
+    }
 </style>
 
 <div class="container-fluide">
@@ -40,11 +45,12 @@
                     <div class="notice">
                         <span class="notice-number">{{ $key + 1 }}</span>
                         <h3>{{ $notice->title }}</h3>
+                        <div class="posted-by">Posted by: {{ $notice->user->name }}</div>
                         <p>
                             {{ $notice->text }}
                         </p>
                         <div class="timestamp">
-                            {{ $notice->created_at->format('M j, Y g:i A') }}
+                            {{ $notice->created_at->setTimezone('Asia/Dhaka')->format('M j, Y g:i A') }}
                         </div>
                     </div>
                     @endforeach

@@ -26,7 +26,7 @@
                 <p>No employees found.</p>
                 @else
                 <div class="table-responsive">
-                    <table class="table table-bordered table-striped">
+                    <table class="table table-striped">
                         <thead>
                             <tr>
                                 <th>ID</th>
@@ -34,6 +34,7 @@
                                 <th>Email</th>
                                 <th>Designation</th>
                                 <th>Joined date</th>
+                                <th>Sale Contribution</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -44,6 +45,18 @@
                                 <td>{{ $employee->email }}</td>
                                 <td>{{ $employee->designation }}</td>
                                 <td>{{ $employee->created_at->setTimezone('Asia/Dhaka')->format('Y-m-d h:i A') }}</td>
+                                <td>
+                                    @php
+                                        $totalSellRate = \App\Models\Lead::sum('sell_rate');
+                                        $employeeSellRate = $employee->leads->sum('sell_rate');
+                                        $percentage = ($employeeSellRate / $totalSellRate) * 100;
+                                    @endphp
+                                    <div class="progress">
+                                        <div class="progress-bar bg-info" role="progressbar" style="width: {{ $percentage }}%" aria-valuenow="{{ $percentage }}" aria-valuemin="0" aria-valuemax="100">
+                                            {{ number_format($percentage, 2) }}%
+                                        </div>
+                                    </div>
+                                </td>
                             </tr>
                             @endforeach
                         </tbody>

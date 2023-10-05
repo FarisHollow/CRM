@@ -32,14 +32,34 @@
       *********************************************************************************************************************************************************** -->
 
 	  <div id="login-page">
+		@if (Route::has('login'))
+		<div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right z-10">
+			@auth
+				<a href="{{ url('/home') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Home</a>
+			@else
+				<a href="{{ route('login') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Log in</a>
+	
+				@if (Route::has('register'))
+					<a href="{{ route('register') }}" class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Register</a>
+				@endif
+			@endauth
+		</div>
+	@endif
 	  	<div class="container">
 	  	
-		      <form class="form-login" action="index.html">
-		        <h2 class="form-login-heading">sign in now</h2>
+			<form class="form-login" method="POST" action='{{Route('login')}}'>
+				@csrf
+		        <h2 class="form-login-heading">Sign in now</h2>
+				<ul>
+					@foreach ($errors->all() as $error)
+						<li>{{ $error }}</li>
+					@endforeach
+			   </ul>
 		        <div class="login-wrap">
-		            <input type="text" class="form-control" placeholder="User ID" autofocus>
+
+		            <input type="email" name="email" id="email" class="form-control" placeholder="User Email" autofocus>
 		            <br>
-		            <input type="password" class="form-control" placeholder="Password">
+		            <input type="password" name="password" id="password" class="form-control" placeholder="Password">
 		            <label class="checkbox">
 		                <span class="pull-right">
 		                    <a data-toggle="modal" href="login.html#myModal"> Forgot Password?</a>
@@ -56,8 +76,8 @@
 		            </div>
 		            <div class="registration">
 		                Don't have an account yet?<br/>
-		                <a class="" href="#">
-		                    Create an account
+						<a href="{{Route('register')}}">
+									                    Create an account
 		                </a>
 		            </div>
 		

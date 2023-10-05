@@ -41,7 +41,9 @@
                                 <h3>{{ \App\Models\Notice::count() }}</h3>
                             </div>
                             <p>You have {{ \App\Models\Notice::count() }} notices by Admin</p>
-                        </div>
+                        </div></a>
+
+
                         <div class="col-md-2 col-sm-2 box0">
                             <div class="box1">
                                 <span class="li_news"></span>

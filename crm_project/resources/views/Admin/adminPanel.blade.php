@@ -46,13 +46,7 @@
 							</a>
 						</div>
 						
-                  		<div class="col-md-2 col-sm-2 box0">
-                  			<div class="box1">
-					  			<span class="li_data"></span>
-					  			<h3>OK!</h3>
-                  			</div>
-					  			<p>Your server is working perfectly. Relax & enjoy.</p>
-                  		</div>
+                  	
                   	
                   	</div><!-- /row mt -->	
                   
@@ -62,7 +56,7 @@
                       <div class="col-md-4 col-sm-4 mb">
 						<div class="white-panel pn donut-chart">
 							<div class="white-header">
-								<h5>SELL RATE</h5>
+								<h5>SELL RATE PROGRESS</h5>
 							</div>
 							<div class="row">
 								<div class="col-sm-6 col-xs-6 goleft">
@@ -424,7 +418,7 @@
             // (string | mandatory) the heading of the notification
             title: 'Welcome to IT WAY UK!',
             // (string | mandatory) the text inside the notification
-            text: 'Best way to explore new softwars',
+            text: 'Best way to explore new softwares',
             // (string | optional) the image to display on the left
             image: 'assets/img/ui-sam.jpg',
             // (bool | optional) if you want it to fade out on its own or just sit there
