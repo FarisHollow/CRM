@@ -63,9 +63,10 @@
                         <div class="col-md-6">
                             <div class="card-section">
                                 <h3><a class="btn btn-link btn-lg" href="{{ route('leads.index') }}">Leads</a></h3>
-                                <p>Click the button below to add current lead.</p>
                         
                                 @if(\App\Models\Permission::first() && \App\Models\Permission::first()->lead)
+                                <p>Click the button below to add current lead.</p>
+
                                     <a class="btn btn-primary" href="{{ route('lead') }}">Add Lead</a>
                                 @endif
                         
