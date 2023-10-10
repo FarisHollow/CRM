@@ -207,20 +207,20 @@ MAIN SIDEBAR MENU
             @if(auth()->check())
 
 
-@if(auth()->user()->role === 'admin')
-<a class="active" href="{{route('dashboard')}}">
-    @elseif(auth()->user()->role === 'employee')
-    <a class="active" href="{{route('e-dashboard')}}">
-        @else
-  <h1>No role found</h1>
-@endif
-@else
-<h1>Not authenticated</h1>
-@endif
+            @if(auth()->user()->role === 'admin')
+               <a class="active" href="{{route('dashboard')}}">
+            @elseif(auth()->user()->role === 'employee')
+               <a class="active" href="{{route('e-dashboard')}}">
+            @else
+               <h1>No role found</h1>
+            @endif
+            @else
+               <h1>Not authenticated</h1>
+            @endif
                 <i class="fa fa-dashboard"></i>
                 <span>Dashboard</span>
             </a>
-        </li>
+          </li>
 
      
 
@@ -246,6 +246,8 @@ MAIN SIDEBAR MENU
                   </form>
                 
         </li>
+
+
         <li class="sub-menu {{ isMenuActive(['addnotice.view', 'notice-board.index']) ? 'active' : '' }}">
             <a href="javascript:;" >
                 <i class="fa fa-tasks"></i>
@@ -260,13 +262,18 @@ MAIN SIDEBAR MENU
             @else
                 <h1>No role found</h1>
             @endif
-            
-                
-          
-
-
             </ul>
-        </li>
+
+            
+            @if(auth()->user()->role === 'admin')
+            <li class="sub-menu">
+                <a href="{{route('permission')}}" >
+                    <i class="fa fa-tasks"></i>
+                    <span> Permission</span>
+                </a>        
+            </li>
+            @endif
+
       
        
 
