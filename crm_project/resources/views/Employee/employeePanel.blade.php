@@ -14,7 +14,7 @@
     /* Add some custom styles for the card section */
     .card-section {
         background-color: #fff;
-        border: 1px solid #ccc;
+        border: 1px solid #f5ebeb;
         border-radius: 5px;
         padding: 20px;
         text-align: center;
@@ -35,13 +35,18 @@
                 <div class="col-lg-9 main-chart">
                     <div class="row mtbox">
                         <div class="col-md-2 col-sm-2 box0">
-                            <a href="{{ route('notice-board.index') }}">
+                            @if (\App\Models\Permission::first()->notice)
+                                <a href="{{ route('notice-board.index') }}">
+                            @endif
                             <div class="box1">
                                 <span class="fas fa-clipboard-list"></span>
                                 <h3>{{ \App\Models\Notice::count() }}</h3>
                             </div>
+                            @if (\App\Models\Permission::first()->notice)
+                                </a>
+                            @endif
                             <p>You have {{ \App\Models\Notice::count() }} notices by Admin</p>
-                        </div></a>
+                        </div>
 
 
                         <div class="col-md-2 col-sm-2 box0">
@@ -56,13 +61,19 @@
                         
                         
                         <div class="col-md-6">
-                          <div class="card-section">
-                            <h3><a class="btn btn-link btn-lg" href="{{ route('leads.index') }}">Leads</a></h3>
-                            <p>Click the button below to add current lead.</p>
-                              <a class="btn btn-primary" href="{{ route('lead') }}">Add Lead</a>
-                              <img src="add.png" alt="Activity Image" style="max-width: 100%; margin-top: 20px;">
-                          </div>
-                      </div>
+                            <div class="card-section">
+                                <h3><a class="btn btn-link btn-lg" href="{{ route('leads.index') }}">Leads</a></h3>
+                                <p>Click the button below to add current lead.</p>
+                        
+                                @if(\App\Models\Permission::first() && \App\Models\Permission::first()->lead)
+                                    <a class="btn btn-primary" href="{{ route('lead') }}">Add Lead</a>
+                                @endif
+                        
+                                <img src="add.png" alt="Activity Image" style="max-width: 100%; margin-top: 20px;">
+                            </div>
+                        </div>
+                        
+                        
                       
                     </div>
                 </div>

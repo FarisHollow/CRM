@@ -49,14 +49,22 @@
                                     @php
                                         $totalSellRate = \App\Models\Lead::sum('sell_rate');
                                         $employeeSellRate = $employee->leads->sum('sell_rate');
-                                        $percentage = ($employeeSellRate / $totalSellRate) * 100;
+                                
+                                        // Check if totalSellRate is zero to avoid division by zero
+                                        if ($totalSellRate != 0) {
+                                            $percentage = ($employeeSellRate / $totalSellRate) * 100;
+                                        } else {
+                                            $percentage = 0; // Set percentage to 0 if totalSellRate is zero to avoid division by zero
+                                        }
                                     @endphp
+                                
                                     <div class="progress">
                                         <div class="progress-bar bg-info" role="progressbar" style="width: {{ $percentage }}%" aria-valuenow="{{ $percentage }}" aria-valuemin="0" aria-valuemax="100">
                                             {{ number_format($percentage, 2) }}%
                                         </div>
                                     </div>
                                 </td>
+                                
                             </tr>
                             @endforeach
                         </tbody>

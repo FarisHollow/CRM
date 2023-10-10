@@ -3,6 +3,8 @@
 @section('content')
 
   <body>
+	
+	
 
   <section id="container" >
       <!--main content start-->
@@ -45,6 +47,19 @@
 								<p>Total {{ \App\Models\Notice::count() }} notices </p>
 							</a>
 						</div>
+
+						<div class="col-md-2 col-sm-2 box0">
+							<a href="{{ route('permission') }}">
+								<div class="box1">
+									<span class="fas fa-lock"></span>
+									<h3 class="centered-text">Permits</h3>
+								</div>
+								<p>Set permission access for your users</p>
+							</a>
+						</div>
+						
+						
+						
 						
                   	
                   	

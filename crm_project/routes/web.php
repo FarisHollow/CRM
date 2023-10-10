@@ -6,6 +6,7 @@ use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\LeadController;
 use App\Actions\Fortify\CreateNewUser;
 use App\Http\Controllers\NoticeController;
+use App\Http\Controllers\PermissionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -50,6 +51,10 @@ Route::get('/todo', function () {
     return view('todo_list');
 })->name('todo_list');
 
+Route::get('/permission', function () {
+    return view('admin.role_permission');
+})->name('permission');
+
 
 
 Route::get('/lock', function () {
@@ -70,6 +75,11 @@ Route::get('/employees', [CreateNewUser::class, 'index'])->name('employees.index
 Route::post('/notice', [NoticeController::class, 'store'])->name('notice.store');
 Route::get('/addnotice', [NoticeController::class, 'view'])->name('addnotice.view');
 Route::get('/notice-board', [NoticeController::class, 'index'])->name('notice-board.index');
+
+
+
+Route::post('/permit', [PermissionController::class, 'store'])->name('permit');
+
 
 
 

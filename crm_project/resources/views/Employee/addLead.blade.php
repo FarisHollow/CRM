@@ -31,7 +31,7 @@
                              <!-- Progress bar for sell rate -->
                           
                              <div class="form-group">
-                                <label for="sellRate">Your  Progress Bar</label>
+                                <label for="sellRate">Your  Progress Bar (Based on sales contribution)</label>
                                 @php
                                     $totalSales = \App\Models\Lead::sum('sell_rate'); // Calculate the total sell_rate from all leads
                                     $userSales = auth()->user()->leads->sum('sell_rate'); // Calculate the user's total sell_rate

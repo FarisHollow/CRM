@@ -8,6 +8,21 @@ use Illuminate\Http\Request;
 class NoticeController extends Controller
 {
 
+    public function permitNotice(Request $request)
+    {
+        // Check if the checkbox is checked
+        $allowViewNoticeBoard = $request->has('view-notice-board');
+    
+        if ($allowViewNoticeBoard) {
+            $notices = Notice::all();
+            return view('noticeBoard', ['notices' => $notices]);
+        } else {
+            return '<p>Not Allowed to see notice</p>';
+        }
+    }
+    
+
+
     public function index()
 {
     $notices = Notice::all(); 
